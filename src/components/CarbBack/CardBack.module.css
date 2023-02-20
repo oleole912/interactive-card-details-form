@@ -18,7 +18,7 @@
     letter-spacing: 0.15rem;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 470px) {
     .card-back {
         top: 2.5rem;
         left: 5rem;
@@ -33,5 +33,19 @@
         font-size: 10px;
         letter-spacing: 0.1rem;
 
+    }
+}
+
+@media (min-width: 471px) and (max-width: 800px) {
+    .card-back {
+        width: 357px;
+        height: 196px;
+        background-size: contain;
+        top: 2.5rem;
+        left: 10rem;
+    }
+
+    .cvc-number {
+        top: 4.4rem;
     }
 }

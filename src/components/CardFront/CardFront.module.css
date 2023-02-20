@@ -33,7 +33,7 @@
     text-transform: uppercase;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 470px) {
     .card-front {
         width: 268.2px;
         height: 147px;
@@ -62,6 +62,33 @@
         padding: 0.4rem 1.2rem 0 1.2rem;
         font-size: 10px;
         letter-spacing: 0.1rem;
+    }
+}
+
+@media (min-width: 471px) and (max-width: 800px) {
+    .card-front {
+        width: 357px;
+        height: 196px;
+        top: 7rem;
+        left: 2rem;
+        z-index: 1;
+        background-size: contain;
+    }
+
+    .card-logo {
+        top: 1.5rem;
+        left: 2rem;
+    }
+
+    .card-number {
+        font-size: 22px;
+        padding: 7rem 1.5rem 0;
+        margin: 0;
+    }
+
+    .card-details {
+        font-size: 16px;
+        padding: 0.35rem 1.5rem 0 1.5rem;
     }
 }
 

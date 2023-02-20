@@ -70,15 +70,15 @@ const Form = ({
       if (!containsLettersOnly(e.target.value)) {
         setIsValidName(false);
       } else {
-        if ((e.target.value).length >= 6) {
-            setIsValidName(true);
+        if (e.target.value.length >= 6) {
+          setIsValidName(true);
         }
       }
     } else {
       setIsBlankName(true);
       //setIsValidName(true); // ??
     }
-    setIsCorrectLengthName(true)
+    setIsCorrectLengthName(true);
   };
 
   const keyUpHandler = (e) => {
@@ -101,46 +101,26 @@ const Form = ({
 
   const cardNumberHandler = (e) => {
     setCardNumber(e.target.value);
-    validateNumber(
-      e.target.value,
-      16,
-      setIsValidNumber,
-      setIsBlankNumber
-    );
-    setIsCorrectLengthNumber(true)
+    validateNumber(e.target.value, 16, setIsValidNumber, setIsBlankNumber);
+    setIsCorrectLengthNumber(true);
   };
 
   const expMonthHandler = (e) => {
     setExpMonth(e.target.value);
-    validateNumber(
-      e.target.value,
-      2,
-      setIsValidDate,
-      setIsBlankMonth
-    );
-    setIsCorrectLengthMonth(true)
+    validateNumber(e.target.value, 2, setIsValidDate, setIsBlankMonth);
+    setIsCorrectLengthMonth(true);
   };
 
   const expYearHandler = (e) => {
     setExpYear(e.target.value);
-    validateNumber(
-      e.target.value,
-      2,
-      setIsValidDate,
-      setIsBlankYear
-    );
-    setIsCorrectLengthYear(true)
+    validateNumber(e.target.value, 2, setIsValidDate, setIsBlankYear);
+    setIsCorrectLengthYear(true);
   };
 
   const cvcHandler = (e) => {
     setCvc(e.target.value);
-    validateNumber(
-      e.target.value,
-      3,
-      setIsValidCvc,
-      setIsBlankCvc
-    );
-    setIsCorrectLengthCvc(true)
+    validateNumber(e.target.value, 3, setIsValidCvc, setIsBlankCvc);
+    setIsCorrectLengthCvc(true);
   };
 
   const submitHandler = (e) => {
@@ -153,39 +133,40 @@ const Form = ({
       typeof expYear !== "undefined" &&
       typeof cvc !== "undefined"
     ) {
-      if (
-        isValidName &&
-        isValidNumber &&
-        isValidDate &&
-        isValidCvc
-      ) {
-        if (isCorrectLengthName && isCorrectLengthNumber && isCorrectLengthMonth && isCorrectLengthYear && isCorrectLengthCvc) {
-            setIsFormValid(true)
+      if (isValidName && isValidNumber && isValidDate && isValidCvc) {
+        if (
+          isCorrectLengthName &&
+          isCorrectLengthNumber &&
+          isCorrectLengthMonth &&
+          isCorrectLengthYear &&
+          isCorrectLengthCvc
+        ) {
+          setIsFormValid(true);
         }
 
         if (name.length < 6) {
-            setIsCorrectLengthName(false);
-            setIsFormValid(false)
+          setIsCorrectLengthName(false);
+          setIsFormValid(false);
         }
 
         if (cardNumber.length < 16) {
-            setIsCorrectLengthNumber(false);
-            setIsFormValid(false)
+          setIsCorrectLengthNumber(false);
+          setIsFormValid(false);
         }
 
         if (expMonth.length < 2) {
-            setIsCorrectLengthMonth(false);
-            setIsFormValid(false)
+          setIsCorrectLengthMonth(false);
+          setIsFormValid(false);
         }
 
         if (expYear.length < 2) {
-            setIsCorrectLengthYear(false);
-            setIsFormValid(false)
+          setIsCorrectLengthYear(false);
+          setIsFormValid(false);
         }
 
         if (cvc.length < 3) {
-            setIsCorrectLengthCvc(false);
-            setIsFormValid(false)
+          setIsCorrectLengthCvc(false);
+          setIsFormValid(false);
         }
       }
     } else {
@@ -213,7 +194,8 @@ const Form = ({
         <label className={styles.label}>cardholder name</label>
         <input
           className={`${styles.input} ${
-            (!isValidName || isBlankName || !isCorrectLengthName) && styles.error
+            (!isValidName || isBlankName || !isCorrectLengthName) &&
+            styles.error
           }`}
           type="text"
           maxLength="25"
@@ -231,7 +213,9 @@ const Form = ({
           ""
         )}
         {!isCorrectLengthName ? (
-          <p className={styles["error-msg"]}>Name is too short (must be at least 6 characters)</p>
+          <p className={styles["error-msg"]}>
+            Name is too short (must be at least 6 characters)
+          </p>
         ) : (
           ""
         )}
@@ -302,12 +286,11 @@ const Form = ({
           ) : (
             ""
           )}
-          {(!isCorrectLengthMonth || !isCorrectLengthYear) ? (
+          {!isCorrectLengthMonth || !isCorrectLengthYear ? (
             <p className={styles["error-msg"]}>Number is too short</p>
           ) : (
             ""
           )}
-
         </div>
         <div
           className={`${styles["form-control-group"]} ${styles["exp-group"]}`}

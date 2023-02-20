@@ -80,7 +80,7 @@
     margin-bottom: 0;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 470px) {
     .form {
         top: 19rem;
         left: 1.6rem;
@@ -92,11 +92,27 @@
     }
 }
 
-@media (min-width: 376px) and (max-width: 800px) {
+@media (min-width: 471px) and (max-width: 800px) {
     .form {
-        top: 45rem;
-        left: 10rem;
-        width: 375px;
+        top: 22rem;
+        left: 2.5rem;
+        width: 400px;
+    }
+
+    .label {
+        color: hsl(270, 3%, 87%);
+    }
+
+    .btn {
+        color: hsl(278, 68%, 11%);
+        background-color: hsl(249, 99%, 90%);
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1130px) {
+    .form {
+        left: 45rem;
+        padding-right: 2rem;
     }
 }
 
