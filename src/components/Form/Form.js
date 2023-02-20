@@ -199,6 +199,7 @@ const Form = ({
           }`}
           type="text"
           maxLength="25"
+          placeholder="e.g. Felicia Appleseed"
           value={name}
           onChange={nameHandler}
         />
@@ -229,6 +230,7 @@ const Form = ({
           }`}
           type="text"
           maxLength="19"
+          placeholder="e.g. 1234 5678 9123 0000"
           value={cardNumber}
           onChange={cardNumberHandler}
           onKeyUp={keyUpHandler}
@@ -262,6 +264,7 @@ const Form = ({
               }`}
               type="text"
               maxLength="2"
+              placeholder="MM"
               value={expMonth}
               onChange={expMonthHandler}
             />
@@ -272,6 +275,7 @@ const Form = ({
               }`}
               type="text"
               maxLength="2"
+              placeholder="YY"
               value={expYear}
               onChange={expYearHandler}
             />
@@ -302,6 +306,7 @@ const Form = ({
             }`}
             type="text"
             maxLength="3"
+            placeholder="e.g. 123"
             value={cvc}
             onChange={cvcHandler}
           />
