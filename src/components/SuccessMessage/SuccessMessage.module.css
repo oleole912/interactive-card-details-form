@@ -1,0 +1,38 @@
+.success-message {
+    position: absolute;
+    top: 16rem;
+    left: 48rem;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.icon-complete {
+    width: 80px;
+    height: 80px;
+}
+
+.message-header {
+    color: hsl(278, 68%, 11%);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 26px;
+    margin: 35px 0 0;
+}
+
+.message-content {
+    color: hsl(279, 6%, 55%);
+}
+
+.btn {
+    padding: 0.8rem 0.9rem;
+    border: 1px solid hsl(278, 68%, 11%);
+    background-color: hsl(278, 68%, 11%);
+    border-radius: 8px;
+    font-size: 16px;
+    color: hsl(0, 0%, 100%);
+    letter-spacing: 0.1rem;
+    width: 100%;
+    margin-top: 2rem;
+}

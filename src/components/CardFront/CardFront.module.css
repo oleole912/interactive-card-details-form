@@ -1,0 +1,36 @@
+.card-front {
+    background-image: url("../../../public/bg-card-front.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 8rem;
+    left: 8rem;
+    color: hsl(0, 0%, 100%);
+    width: 447px;
+    height: 245px;
+}
+
+.card-logo {
+    position: absolute;
+    left: 2.5rem;
+    top: 2rem;
+}
+
+.card-number {
+    font-size: 26px;
+    letter-spacing: 0.2rem;
+    padding: 6.5rem 2.5rem 0;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem 0 2.5rem;
+    font-size: 13px;
+    letter-spacing: 0.15rem;
+
+}
+
+.name {
+    text-transform: uppercase;
+}
+

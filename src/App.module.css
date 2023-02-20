@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+.body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    background-image: url('../public/bg-main-desktop.png');
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}

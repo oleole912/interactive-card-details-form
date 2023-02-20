@@ -1,0 +1,82 @@
+.form {
+    position: absolute;
+    top: 12rem;
+    left: 48rem;
+    width: 350px;
+}
+
+.form-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.exp-group {
+    width: 50%;
+}
+
+.label {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.15rem;
+    padding-top: 1rem;
+    color: hsl(278, 68%, 11%);
+}
+
+.input {
+    padding: 0.7rem 1rem;
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.input-small {
+    width: 40%;
+}
+
+.form-control-details-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.8rem 0.9rem;
+    border: 1px solid hsl(278, 68%, 11%);
+    background-color: hsl(278, 68%, 11%);
+    border-radius: 8px;
+    font-size: 16px;
+    color: hsl(0, 0%, 100%);
+    letter-spacing: 0.1rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.input {
+    padding: 0.7rem 1rem;
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid hsl(278, 94%, 30%);
+}
+
+.input.error{
+    border: 1px solid hsl(0, 100%, 66%);
+
+}
+
+.error-msg {
+    color: hsl(0, 100%, 66%);
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
