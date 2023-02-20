@@ -27,10 +27,41 @@
     padding: 0 1.5rem 0 2.5rem;
     font-size: 13px;
     letter-spacing: 0.15rem;
-
 }
 
 .name {
     text-transform: uppercase;
+}
+
+@media (max-width: 375px) {
+    .card-front {
+        width: 268.2px;
+        height: 147px;
+        background-size: contain;
+        top: 7.7rem;
+        left: 1.7rem;
+        z-index: 1;
+    }
+
+    .card-logo {
+        position: absolute;
+        left: 1.3rem;
+        top: 1.3rem;
+        width: 54px;
+        height: 30px;
+    }
+
+    .card-number {
+        font-size: 16px;
+        padding: 5rem 1.2rem 0;
+        margin: 0;
+        letter-spacing: 0.15rem;
+    }
+
+    .card-details {
+        padding: 0.4rem 1.2rem 0 1.2rem;
+        font-size: 10px;
+        letter-spacing: 0.1rem;
+    }
 }
 

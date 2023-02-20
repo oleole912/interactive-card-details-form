@@ -18,13 +18,11 @@ const Form = ({
   const validateNumber = (
     string,
     correctLength,
-    funcIsCorrectLenght,
     funcIsValidFormat,
     funcIsBlank
   ) => {
     if (string.length >= 0) {
       if (string.length === 0) {
-        // set as an empty field
         funcIsBlank(true);
       } else {
         funcIsBlank(false);
@@ -35,23 +33,19 @@ const Form = ({
         if (!isNaN(Number(newString))) {
           // check if input has correct length (2 for month and year, 3 for cvc, 16 for card number)
           if (newString.length === correctLength) {
-            funcIsCorrectLenght(true);
             funcIsValidFormat(true);
-          } else {
-            //funcIsCorrectLenght(false)
           }
         } else {
-          funcIsCorrectLenght(false);
           funcIsValidFormat(false);
         }
       }
     } else {
       funcIsValidFormat(false);
       funcIsBlank(true);
-      funcIsCorrectLenght(false);
     }
   };
 
+  const [isCorrectLengthName, setIsCorrectLengthName] = useState(true);
   const [isCorrectLengthNumber, setIsCorrectLengthNumber] = useState(true);
   const [isCorrectLengthMonth, setIsCorrectLengthMonth] = useState(true);
   const [isCorrectLengthYear, setIsCorrectLengthYear] = useState(true);
@@ -76,12 +70,15 @@ const Form = ({
       if (!containsLettersOnly(e.target.value)) {
         setIsValidName(false);
       } else {
-        setIsValidName(true);
+        if ((e.target.value).length >= 6) {
+            setIsValidName(true);
+        }
       }
     } else {
       setIsBlankName(true);
-      setIsValidName(true);
+      //setIsValidName(true); // ??
     }
+    setIsCorrectLengthName(true)
   };
 
   const keyUpHandler = (e) => {
@@ -107,10 +104,10 @@ const Form = ({
     validateNumber(
       e.target.value,
       16,
-      setIsCorrectLengthNumber,
       setIsValidNumber,
       setIsBlankNumber
     );
+    setIsCorrectLengthNumber(true)
   };
 
   const expMonthHandler = (e) => {
@@ -118,10 +115,10 @@ const Form = ({
     validateNumber(
       e.target.value,
       2,
-      setIsCorrectLengthMonth,
       setIsValidDate,
       setIsBlankMonth
     );
+    setIsCorrectLengthMonth(true)
   };
 
   const expYearHandler = (e) => {
@@ -129,10 +126,10 @@ const Form = ({
     validateNumber(
       e.target.value,
       2,
-      setIsCorrectLengthYear,
       setIsValidDate,
       setIsBlankYear
     );
+    setIsCorrectLengthYear(true)
   };
 
   const cvcHandler = (e) => {
@@ -140,10 +137,10 @@ const Form = ({
     validateNumber(
       e.target.value,
       3,
-      setIsCorrectLengthCvc,
       setIsValidCvc,
       setIsBlankCvc
     );
+    setIsCorrectLengthCvc(true)
   };
 
   const submitHandler = (e) => {
@@ -160,16 +157,36 @@ const Form = ({
         isValidName &&
         isValidNumber &&
         isValidDate &&
-        isValidCvc &&
-        isCorrectLengthNumber &&
-        isCorrectLengthMonth &&
-        isCorrectLengthYear &&
-        isCorrectLengthCvc
+        isValidCvc
       ) {
-        console.log("success");
-        setIsFormValid(true);
-      } else {
-        console.log("fail");
+        if (isCorrectLengthName && isCorrectLengthNumber && isCorrectLengthMonth && isCorrectLengthYear && isCorrectLengthCvc) {
+            setIsFormValid(true)
+        }
+
+        if (name.length < 6) {
+            setIsCorrectLengthName(false);
+            setIsFormValid(false)
+        }
+
+        if (cardNumber.length < 16) {
+            setIsCorrectLengthNumber(false);
+            setIsFormValid(false)
+        }
+
+        if (expMonth.length < 2) {
+            setIsCorrectLengthMonth(false);
+            setIsFormValid(false)
+        }
+
+        if (expYear.length < 2) {
+            setIsCorrectLengthYear(false);
+            setIsFormValid(false)
+        }
+
+        if (cvc.length < 3) {
+            setIsCorrectLengthCvc(false);
+            setIsFormValid(false)
+        }
       }
     } else {
       if (typeof name === "undefined") {
@@ -177,24 +194,15 @@ const Form = ({
       }
       if (typeof cardNumber === "undefined") {
         setIsBlankNumber(true);
-      } else if (cardNumber.length < 16) {
-        console.log('cardNumber.length', cardNumber.length)
-        setIsCorrectLengthNumber(false);
       }
       if (typeof expMonth === "undefined") {
         setIsBlankMonth(true);
-      } else if (expMonth.length < 2) {
-        setIsCorrectLengthMonth(false);
       }
       if (typeof expYear === "undefined") {
         setIsBlankYear(true);
-      } else if (expYear.length < 2) {
-        setIsCorrectLengthYear(false);
       }
       if (typeof cvc === "undefined") {
         setIsBlankCvc(true);
-      } else if (cvc.length < 3) {
-        setIsCorrectLengthCvc(false);
       }
     }
   };
@@ -205,7 +213,7 @@ const Form = ({
         <label className={styles.label}>cardholder name</label>
         <input
           className={`${styles.input} ${
-            (!isValidName || isBlankName) && styles.error
+            (!isValidName || isBlankName || !isCorrectLengthName) && styles.error
           }`}
           type="text"
           maxLength="25"
@@ -218,7 +226,12 @@ const Form = ({
           ""
         )}
         {isBlankName ? (
-          <p className={styles["error-msg"]}>Can't be blank.</p>
+          <p className={styles["error-msg"]}>Can't be blank</p>
+        ) : (
+          ""
+        )}
+        {!isCorrectLengthName ? (
+          <p className={styles["error-msg"]}>Name is too short (must be at least 6 characters)</p>
         ) : (
           ""
         )}
@@ -242,7 +255,7 @@ const Form = ({
           ""
         )}
         {isBlankNumber ? (
-          <p className={styles["error-msg"]}>Can't be blank.</p>
+          <p className={styles["error-msg"]}>Can't be blank</p>
         ) : (
           ""
         )}
@@ -285,20 +298,16 @@ const Form = ({
             ""
           )}
           {isBlankMonth || isBlankYear ? (
-            <p className={styles["error-msg"]}>Can't be blank.</p>
+            <p className={styles["error-msg"]}>Can't be blank</p>
           ) : (
             ""
           )}
-          {!isCorrectLengthMonth ? (
+          {(!isCorrectLengthMonth || !isCorrectLengthYear) ? (
             <p className={styles["error-msg"]}>Number is too short</p>
           ) : (
             ""
           )}
-          {!isCorrectLengthYear ? (
-            <p className={styles["error-msg"]}>Number is too short</p>
-          ) : (
-            ""
-          )}
+
         </div>
         <div
           className={`${styles["form-control-group"]} ${styles["exp-group"]}`}
@@ -319,7 +328,7 @@ const Form = ({
             ""
           )}
           {isBlankCvc ? (
-            <p className={styles["error-msg"]}>Can't be blank.</p>
+            <p className={styles["error-msg"]}>Can't be blank</p>
           ) : (
             ""
           )}

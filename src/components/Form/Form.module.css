@@ -80,3 +80,23 @@
     margin-bottom: 0;
 }
 
+@media (max-width: 375px) {
+    .form {
+        top: 19rem;
+        left: 1.6rem;
+        width: 320px;
+    }
+
+    .label {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 800px) {
+    .form {
+        top: 45rem;
+        left: 10rem;
+        width: 375px;
+    }
+}
+

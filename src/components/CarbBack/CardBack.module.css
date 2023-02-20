@@ -17,3 +17,21 @@
     font-size: 16px;
     letter-spacing: 0.15rem;
 }
+
+@media (max-width: 375px) {
+    .card-back {
+        top: 2.5rem;
+        left: 5rem;
+        width: 268.2px;
+        height: 147px;
+        background-size: contain;
+    }
+
+    .cvc-number {
+        top: 3.5rem;
+        left: 13rem;
+        font-size: 10px;
+        letter-spacing: 0.1rem;
+
+    }
+}

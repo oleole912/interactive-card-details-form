@@ -7,3 +7,9 @@
     background-repeat: no-repeat;
     min-height: 100vh;
 }
+
+@media (max-width: 375px) {
+    .body {
+        background-image: url('../public/bg-main-mobile.png');
+    }
+}
