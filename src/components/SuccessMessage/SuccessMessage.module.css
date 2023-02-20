@@ -37,6 +37,16 @@
     margin-top: 2rem;
 }
 
+.btn:hover {
+    background-color: hsl(277, 36%, 53%);
+    border: 1px solid hsl(277, 36%, 53%);
+    cursor: pointer;
+}
+
+.btn:active {
+    font-size: 18px;
+}
+
 @media (max-width: 470px) {
     .success-message {
         top: 21rem;
